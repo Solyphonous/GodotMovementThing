@@ -1,6 +1,6 @@
 extends Camera3D
 
-@onready var player: RigidBody3D = get_node("../Player")
+@onready var cam: Node3D = get_node("../Player/CamHolder")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -9,5 +9,4 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	transform = player.transform
-	print(player.transform)
+	transform = cam.transform
