@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5mhnfn4vd5dl"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_s7ca4"]
+[ext_resource type="Script" path="res://camera.gd" id="2_e6bpq"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_4t3cn"]
+albedo_color = Color(1, 0, 0.458824, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_m08vb"]
+material = SubResource("ORMMaterial3D_4t3cn")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o41ay"]
+
+[node name="PlayerHolder" type="Node3D"]
+
+[node name="Player" type="RigidBody3D" parent="."]
+lock_rotation = true
+script = ExtResource("1_s7ca4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+mesh = SubResource("CapsuleMesh_m08vb")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("CapsuleShape3D_o41ay")
+metadata/_edit_lock_ = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+script = ExtResource("2_e6bpq")
+metadata/_edit_lock_ = true
