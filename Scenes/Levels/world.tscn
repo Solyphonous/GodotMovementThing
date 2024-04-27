@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dyemp37rdaif8"]
 
-[ext_resource type="Texture2D" uid="uid://dxub73hfc0ahv" path="res://DevMats/Green/texture_08.png" id="1_a6ihw"]
-[ext_resource type="PackedScene" uid="uid://c5mhnfn4vd5dl" path="res://Scenes/player.tscn" id="2_5t8ac"]
+[ext_resource type="Texture2D" uid="uid://x7bgb86voxdb" path="res://DevMats/Light/texture_07.png" id="1_4njv0"]
+[ext_resource type="PackedScene" uid="uid://c5mhnfn4vd5dl" path="res://Scenes/player.tscn" id="2_iunkd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ylsd5"]
 sky_horizon_color = Color(0.596251, 0.788698, 0.74399, 1)
@@ -18,10 +18,10 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u23db"]
-albedo_texture = ExtResource("1_a6ihw")
-uv1_scale = Vector3(4, 4, 4)
+albedo_texture = ExtResource("1_4njv0")
+uv1_scale = Vector3(40, 40, 40)
 uv1_triplanar = true
-uv2_scale = Vector3(2, 2, 2)
+uv2_scale = Vector3(100, 100, 100)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ds1vp"]
 material = SubResource("StandardMaterial3D_u23db")
@@ -40,7 +40,7 @@ shadow_enabled = true
 environment = SubResource("Environment_qmlmi")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(50, 0, 0, 0, 0.1, 0, 0, 0, 50, 0, -0.1, 0)
+transform = Transform3D(1000, 0, 0, 0, 0.2, 0, 0, 0, 1000, 0, -0.1, 0)
 mesh = SubResource("BoxMesh_ds1vp")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
@@ -48,5 +48,5 @@ mesh = SubResource("BoxMesh_ds1vp")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_20sw5")
 
-[node name="Player" parent="." instance=ExtResource("2_5t8ac")]
+[node name="Player" parent="." instance=ExtResource("2_iunkd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
